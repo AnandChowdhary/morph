@@ -1,13 +1,30 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import VuexPersistence from "vuex-persist";
 
 Vue.use(Vuex);
 
+interface RootState {
+  authenticated: boolean;
+  token: string;
+}
+
+const vuexLocal = new VuexPersistence<RootState>({
+  storage: window.localStorage
+});
+
 export default new Vuex.Store({
   state: {
-    authenticated: false
+    authenticated: false,
+    token: ""
   },
-  mutations: {},
+  mutations: {
+    setToken(state, token) {
+      state.authenticated = true;
+      state.token = token;
+    }
+  },
   actions: {},
-  modules: {}
+  modules: {},
+  plugins: [vuexLocal.plugin]
 });
