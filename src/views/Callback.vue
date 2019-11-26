@@ -1,25 +1,18 @@
 <template>
   <div class="home">
-    <h1>Morph</h1>
+    <h1>Logging in...</h1>
     <p class="lead">Community-powered localization for open-source projects</p>
-    <Login msg="Welcome to Your Vue.js App" />
-    <p class="setup">
-      <router-link to="/setup">Set up your project</router-link>
-    </p>
   </div>
 </template>
 
 <script>
 import Vue from "vue";
 import Component from "vue-class-component";
-import Login from "@/components/Login.vue";
 
-@Component({
-  components: {
-    Login
-  }
-})
-export default class Translate extends Vue {}
+@Component
+export default class Translate extends Vue {
+  mounted() {}
+}
 </script>
 
 <style lang="scss" scoped>

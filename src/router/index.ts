@@ -19,6 +19,11 @@ const routes = [
     path: "/translate/:user/:repo",
     name: "translate",
     component: () => import("../views/Translate.vue")
+  },
+  {
+    path: "/callback",
+    name: "callback",
+    component: () => import("../views/Callback.vue")
   }
 ];
 

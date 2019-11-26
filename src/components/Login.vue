@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button>Login with GitHub &rarr;</button>
+    <button @click="login">Login with GitHub &rarr;</button>
   </div>
 </template>
 
@@ -9,7 +9,12 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 
 @Component
 export default class HelloWorld extends Vue {
-  @Prop() private msg!: string;
+  login() {
+    const url = `https://github.com/login/oauth/authorize?client_id=Iv1.b2c83c354835a430&redirect_uri=${encodeURIComponent(
+      "https://morph.anandchowdhary.now.sh/callback"
+    )}&scope=${encodeURIComponent("repo user")}`;
+    window.location.href = url;
+  }
 }
 </script>
 

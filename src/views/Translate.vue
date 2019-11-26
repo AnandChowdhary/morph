@@ -29,6 +29,7 @@ export default class Translate extends Vue {
   completed = 0;
 
   created() {
+    if (!this.$store.state.authenticated) this.$router.replace("/");
     if (this.$route.params.user)
       this.user = this.$route.params.user || "elninotech";
     if (this.$route.params.repo)
