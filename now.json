@@ -1,0 +1,5 @@
+{
+  "env": {
+    "MORPH_CLIENT_SECRET": "@morph_client_secret"
+  }
+}
