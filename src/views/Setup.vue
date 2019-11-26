@@ -5,26 +5,43 @@
     <form>
       <label>
         <span>GitHub username</span>
-        <input type="text" placeholder="elninotech" required />
+        <input v-model="user" type="text" placeholder="elninotech" required />
       </label>
       <label>
         <span>Repository name</span>
-        <input type="text" placeholder="uppload" required />
+        <input v-model="repo" type="text" placeholder="uppload" required />
       </label>
       <div class="row">
         <label>
           <span>I18N directory</span>
-          <input type="text" placeholder="src/i18n" required />
+          <input v-model="dir" type="text" placeholder="src/i18n" required />
         </label>
         <label>
           <span>Files type</span>
-          <input type="text" placeholder="json" required />
+          <input v-model="filetype" type="text" placeholder="json" required />
         </label>
       </div>
-      <router-link to="/" class="button">Create link</router-link>
+      <router-link
+        :to="`/translate/${user}/${repo}?dir=${dir}&filetype=${filetype}`"
+        class="button"
+        >Create link</router-link
+      >
     </form>
   </div>
 </template>
+
+<script>
+import Vue from "vue";
+import Component from "vue-class-component";
+
+@Component
+export default class Setup extends Vue {
+  user = "";
+  repo = "";
+  dir = "";
+  filetype = "json";
+}
+</script>
 
 <style lang="scss" scoped>
 .row {
