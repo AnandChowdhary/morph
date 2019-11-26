@@ -8,10 +8,24 @@
 <script>
 import Vue from "vue";
 import Component from "vue-class-component";
+import axios from "axios";
 
 @Component
 export default class Translate extends Vue {
-  mounted() {}
+  async mounted() {
+    const code = this.$route.query.code;
+    if (!code) return this.$router.replace("/");
+    try {
+      const result = (
+        await axios.post("https://morph.anandchowdhary.now.sh/api/login", {
+          code
+        })
+      ).data;
+      window.console.log("Hello, world!", result);
+    } catch (error) {
+      window.console.log("Got error", error);
+    }
+  }
 }
 </script>
 
