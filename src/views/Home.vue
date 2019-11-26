@@ -3,7 +3,9 @@
     <h1>Morph</h1>
     <p class="lead">Community-powered localization for open-source projects</p>
     <Login msg="Welcome to Your Vue.js App" />
-    <p class="setup"><router-link to="/">Set up your project</router-link></p>
+    <p class="setup">
+      <router-link to="/setup">Set up your project</router-link>
+    </p>
   </div>
 </template>
 
